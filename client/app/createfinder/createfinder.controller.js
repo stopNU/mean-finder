@@ -12,7 +12,7 @@ angular.module('meanFinderApp')
     var original = angular.copy($scope.slide);
 
     $scope.addSlide = function(slide){
-      console.log("Add Slide");
+      console.log('Add Slide');
       var deferred = $q.defer();
 
       
@@ -37,24 +37,24 @@ angular.module('meanFinderApp')
     };
 
     $scope.updateSlide = function(){
-      console.log("Update Slide");
+      console.log('Update Slide');
       $http.put('api/finders/' + $scope.slide._id, $scope.slide)
       .then(
         function(response){
-          console.log("success", response);
+          console.log('success', response);
 
           for(var i = 0; i < finderSlides.length; i++){
             console.log(finderSlides[i]);
-            if(finderSlides[i] == $scope.slide._id && i < (finderSlides.length - 1)){
+            if(finderSlides[i] === $scope.slide._id && i < (finderSlides.length - 1)){
               $http.get('/api/finders/' + finderSlides[i]).success(function(slide){
-                console.log("Looking for next slide");
+                console.log('Looking for next slide');
                 console.log(slide);
                 $scope.slide = slide;
-              })
+              });
               break;
             }
             else{
-              console.log("No next slide created");
+              console.log('No next slide created');
               $scope.slide = angular.copy(original);
               $scope.createSlidesForm.$setPristine();
               break;  
@@ -62,33 +62,33 @@ angular.module('meanFinderApp')
           }
         },
         function(response){
-          console.log("error", response);
+          console.log('error', response);
         }
-      )
+      );
     };
 
     $scope.previous = function(){
       if($scope.slide._id){
-        console.log("Slide does have ID");
+        console.log('Slide does have ID');
         for(var i = 0; i < finderSlides.length; i++){
-          if(finderSlides[i] == $scope.slide._id){
+          if(finderSlides[i] === $scope.slide._id){
             $http.get('/api/finders/' + finderSlides[i - 1]).success(function(slide){
-              console.log("Looking for previous slide");
+              console.log('Looking for previous slide');
               console.log(slide);
               $scope.slide = slide;
-            })
+            });
             break;
           }
         }
       }
       else{
         var previousSlide = finderSlides[finderSlides.length - 1];
-        console.log("Slide doesnt have ID");
+        console.log('Slide doesnt have ID');
         $http.get('/api/finders/' + previousSlide).success(function(slide){
-            console.log("Looking for previous slide");
+            console.log('Looking for previous slide');
             console.log(slide);
             $scope.slide = slide;
-        })
+        });
       }
     };
 

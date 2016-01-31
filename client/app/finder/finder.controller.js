@@ -9,14 +9,14 @@ angular.module('meanFinderApp')
     $scope.testData = [{"__v":0,"text":"Test Slide Title Text","_id":"56ae4aab8e887ee819a1593a","options":[{"image":"http://www.joomlack.fr/images/demos/demo2/on-top-of-earth.jpg","title":"Test title 1"},{"image":"http://www.joomlack.fr/images/demos/demo2/on-top-of-earth.jpg","title":"Test title 2"}]},{"__v":0,"text":"Test Slide Title Text","_id":"56ae4af48e887ee819a1593b","options":[{"image":"http://i164.photobucket.com/albums/u8/hemi1hemi/COLOR/COL9-6.jpg","title":"Test title 1-1"},{"image":"http://i164.photobucket.com/albums/u8/hemi1hemi/COLOR/COL9-6.jpg","title":"Test title 1-2"},{"image":"http://i164.photobucket.com/albums/u8/hemi1hemi/COLOR/COL9-6.jpg","title":"Test title 1-3"}]}];
 
     //Only make user req when state is finder
-    if($scope.$state.current.name == "finder"){
+    if($scope.$state.current.name === 'finder'){
 
-	    function getUserFinder(){
+    	var getUserFinder = function(){
 	    	var deferred = $q.defer();
 
 	    	deferred.resolve(
 		    $http.get('/api/users/me').success(function(user){
-		    		console.log("Looking for user");
+		    		console.log('Looking for user');
 		    		console.log(user.finders);
 		    		$scope.slides = user.finders;
 		    })
@@ -33,7 +33,7 @@ angular.module('meanFinderApp')
 		    		finder.push(slide);
 		    		$scope.finder = finder;
 		    		console.log($scope.finder);
-			    })
+			    });
 		    }
 		});
 
@@ -45,13 +45,13 @@ angular.module('meanFinderApp')
     	$scope.finders = finders;
     });*/
 
-	$scope.selected = function(elem){
+	$scope.selected = function(){
 	  angular.element(document).find('.option').removeClass('selected');
 	  angular.element(event.target.parentNode).addClass('selected');
 	};
 
 	$scope.checkIfSelected = function() {
-	 if (angular.element(document).find('.selected').length == 0) {
+	 if (angular.element(document).find('.selected').length === 0) {
 	   return true;
 	  }
 	  else {
