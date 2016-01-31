@@ -1,0 +1,67 @@
+.row {
+}
+form {
+	background-color: #5BA2DE;
+	padding: 15px;
+}
+label {
+	color: white;
+}
+.optionsContainer{
+	text-align:center;
+}
+.options{
+	display: inline-block;
+	text-align: center;
+	margin: 0px 8px 10px 8px;
+	border: 1px solid black;
+	border-radius: 5px;
+	padding: 10px;
+}
+.options img {
+	width: 125px;
+	height: 150px;
+	display: block;
+	margin: 5px auto;
+}
+
+
+
+.addButton {
+	margin: 30px 0;
+}
+
+
+.nav-buttons {
+	margin-top: 20px;
+	text-align: center;
+}
+
+/* PREVIEW STYLES */
+
+#preview{
+	text-align: center;
+	background-color: green;
+	color: #fff;
+	min-height: 260px;
+	overflow: hidden;
+}
+#preview h2 {
+	margin-top: 0px;
+	padding-top: 10px;
+}
+
+#preview img {
+	width: 60px;
+	height: 80px;
+}
+#preview .previewOption{
+	display: inline-block;
+	margin: auto 4px;
+}
+#previewButtons {
+	color: #333;
+}
+#preview .no-preview {
+ margin: 70px 0 70px 0px;
+}

@@ -1,0 +1,14 @@
+<h2>Preview Finder</h2>
+<h3>{{previewArray[number].text}}</h3>
+<div class="previewOption" ng-repeat="option in previewArray[number].options">
+		<img src="{{option.image}}">
+		<h4>{{option.title}}</h4>
+</div>
+
+	<p class="no-preview" ng-if="previewArray == 0">No Preview Available</p>
+
+<div id="previewButtons">
+	<button class="btn" data-ng-disabled="number == 0" ng-click="number = number - 1" ng-init="number=0">Previous</button>
+	<button class="btn" data-ng-disabled="number == (previewArray.length - 1) || previewArray.length == 0" ng-click="number = number + 1">Next</button>
+	<!-- <p>PreviewNumber: {{number}}</p> -->
+</div>

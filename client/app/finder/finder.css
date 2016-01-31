@@ -1,0 +1,44 @@
+.finderContainer{
+	text-align: center;
+	padding: 0px 5px 20px 0px;
+	width: 886px;
+	min-height: 400px;
+	margin: 10px auto;
+	border: 1px solid #efefef;
+	box-shadow: 0 0 10px #dddddd;
+	font-family: 'Montserrat', sans-serif;
+}
+.option{
+	display: inline-block;
+	border: 2px solid #dddddd;
+	box-shadow: 0 0 2px #dddddd;
+	margin: 0 2%;
+	border-radius: 10px;
+	cursor: pointer;
+}
+.option:hover{
+	box-shadow: 0px 0px 2px #B98989;
+}
+.option img{
+	width:200px;
+	height:220px;
+}
+h1{
+	text-align: center;
+	padding: 0 0 10px 0px;
+}
+
+.selected{
+	border-color: red;
+}
+
+.loader{
+	position: absolute;
+    left: 46%;
+    margin-top: 100px;
+}
+
+
+#navButtons {
+	text-align: center;
+}

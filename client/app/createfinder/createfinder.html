@@ -1,0 +1,40 @@
+<navbar></navbar>
+
+<div class="container">
+	<div class="row">
+		<div class="col-sm-12">
+      		<h1>Create a fucking finder</h1>
+    	</div>
+    	<div class="col-sm-9">
+    		<form class="form" name="createSlidesForm" ng-submit="addSlide(slide)" novalidate>
+    			<label>Slide title text</label>
+          <input type="text" name="text" class="form-control" ng-model="slide.text" placeholder="Write your title here.." required/>
+          
+          <button ng-click="addOption()" class="addButton" type="button">Add Option</button>
+          <div class="optionsContainer">
+          <div class="options" ng-repeat="options in slide.options">
+            <!-- <label>Image Url</label> -->
+            <button ng-click="slide.options.splice($index,1)">Remove</button>
+            <input type="text" name="imageUrl" class="form-control" placeholder="Insert image url here" ng-model="options.image" required/>
+            <img src="{{options.image}}">
+            <label>Title</label>
+            <input type="text" name="title" class="form-control" ng-model="options.title" required/>
+          </div>
+          </div>
+
+          <div class="nav-buttons">
+            <button class="btn btn-inverse btn-lg btn-register" ng-click="previous()" type="button">Previous</button>
+		        <button ng-if="!slide._id" class="btn btn-inverse btn-lg btn-register" type="submit">Next</button>
+            <button ng-if="slide._id" class="btn btn-inverse btn-lg btn-register" ng-click="updateSlide()" type="button">Next</button>
+            <button class="btn btn-inverse btn-lg btn-register" ng-click="sendIds()" type="button">Save & Finish</button>
+		      </div>
+    		</form>
+        {{slide}}
+        {{previewArray}}
+    	</div>
+      <div class="col-sm-3">
+        <div id="preview" ng-controller="PreviewCtrl" ng-include src="'app/createfinder/preview.html'">
+        </div>
+      </div>
+	</div>
+</div>

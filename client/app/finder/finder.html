@@ -1,0 +1,27 @@
+<navbar></navbar>
+
+<div class="finderContainer">
+	<div class="loader" ng-show="load">
+		<img src="../assets/images/loading_spinner.gif">
+	</div>
+	<div ng-hide="load">
+		<h1>{{finder[number].text}}</h1>
+		<div class="optionContainer view-animate">
+			<div ng-if="number < finder.length" class="option" ng-click="selected()" ng-repeat="option in finder[number].options">
+				<img src="{{option.image}}">
+				<h3>{{option.title}}</h3>
+			</div>
+			<div ng-if="number == finder.length">
+				<h2>Check out your results</h2>
+			</div>	
+		</div>
+	</div>
+</div>
+
+<div id="navButtons">
+	<button class="btn" ng-click="number = number - 1" ng-init="number=0">Previous</button>
+	<button class="btn" data-ng-disabled="checkIfSelected()" ng-click="number = increaseNumber(number)">Next</button>
+	<p>SlideNumber: {{number}}</p>
+</div>
+
+<footer></footer>
