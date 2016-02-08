@@ -19,9 +19,8 @@
 </div>
 
 <div id="navButtons">
-	<button class="btn" ng-click="number = number - 1" ng-init="number=0">Previous</button>
+	<button class="btn" data-ng-disabled="number == 0" ng-click="number = number - 1" ng-init="number=0">Previous</button>
 	<button class="btn" data-ng-disabled="checkIfSelected()" ng-click="number = increaseNumber(number)">Next</button>
-	<p>SlideNumber: {{number}}</p>
 </div>
 
 <footer></footer>
